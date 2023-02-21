@@ -13,7 +13,7 @@ Create table Account(
 )
 
 Create table Librarian(
-	LibrarianID nvarchar(50) primary key NOT NULL,
+	LibrarianID nvarchar(50) primary key not null,
 	AccountName nvarchar(80) foreign key references Account(AccountName) ,
 	[Shift] nvarchar(50) ,
 	Note nvarchar(50) 
@@ -48,7 +48,7 @@ Create table Book(
 )
 
 Create table Student(
-	StudentID nvarchar(50) primary key NOT NULL,
+	StudentID nvarchar(50) primary key not null,
 	AccountName nvarchar(80) foreign key references Account(AccountName) ,
 	Semsester int ,
 	Major nvarchar(50) ,
