@@ -20,7 +20,7 @@ Create table Librarian(
 )
 
 Create table Announcement(
-	announcementID int IDENTITY(1,1) primary key,
+	announcementID int IDENTITY(1,1) primary key not null,
 	LibrarianID nvarchar(50) foreign key references Librarian(LibrarianID),
 	title nvarchar(150),
 	content nvarchar(max),
