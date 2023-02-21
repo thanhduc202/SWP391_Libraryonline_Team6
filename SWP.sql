@@ -20,7 +20,7 @@ Create table Librarian(
 )
 
 Create table Announcement(
-	announcementID int IDENTITY(1,1) primary key not null,
+	announcementID int identity(1,1) primary key not null,
 	LibrarianID nvarchar(50) foreign key references Librarian(LibrarianID),
 	title nvarchar(150),
 	content nvarchar(max),
@@ -39,7 +39,7 @@ Create table Book(
 	Bname nvarchar(50),
 	[image] nvarchar(300),
 	Author nvarchar(80),
-	Cid int FOREIGN KEY REFERENCES Category(CID) ,
+	Cid int foreign key references Category(CID) ,
 	[Language] nvarchar(50),
 	[Description] nvarchar(max) ,
 	[Status] int ,
@@ -68,8 +68,8 @@ Create table Borrow(
 
 
 Create table Feedback(
-	StudentID nvarchar(50) FOREIGN KEY REFERENCES Student(StudentID) ,
-	BookID int FOREIGN KEY REFERENCES Book(BookID),
+	StudentID nvarchar(50) foreign key references Student(StudentID) ,
+	BookID int foreign key references Book(BookID),
 	Content nvarchar(200),
 	Star int ,
 	[Date] date
@@ -78,7 +78,7 @@ Create table Feedback(
 
 
 Create table ListOrderBooks(
-	OrderID int IDENTITY(1,1) primary key not null,
+	OrderID int identity(1,1) primary key not null,
 	StudentID nvarchar(50) foreign key references Student(StudentID),
 	BookID int foreign key references Book(BookID)
 )
