@@ -45,7 +45,7 @@ Create table Book(
 	[Status] int ,
 	quantity int ,
 	publisher nvarchar(75),
-	[ReleseaDate] date,
+	[ReleaseDate] date,
 	Page int
 )
 
