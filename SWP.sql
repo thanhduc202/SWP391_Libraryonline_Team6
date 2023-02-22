@@ -98,8 +98,8 @@ INSERT INTO Category(CID, CName, Major) VALUES (2, N'lifeStyle', NULL)
 INSERT INTO Category(CID, CName, Major) VALUES (3, N'Trader', NULL)
 
 /*Insert Librarian*/
-INSERT Librarian(LibrarianID, AccountName, [Shift], Note) VALUES (N'he11', N'chung@gmail.com', 1, N'1', NULL)
-INSERT Librarian(LibrarianID, AccountName, [Shift], Note) VALUES (N'he12', N'linh@gmail.com', 2, N'1', NULL)
+INSERT Librarian(LibrarianID, AccountName, [Shift], Note) VALUES (N'he11', N'chung@gmail.com', N'1', NULL)
+INSERT Librarian(LibrarianID, AccountName, [Shift], Note) VALUES (N'he12', N'linh@gmail.com', N'1', NULL)
 
 /*Insert Book*/
 INSERT INTO Book( Bname, [image], Author, Cid, [Language], [Description], [Status], quantity, publisher)
