@@ -44,7 +44,8 @@ Create table Book(
 	[Description] nvarchar(max) ,
 	[Status] int ,
 	quantity int ,
-	publisher nvarchar(75)
+	publisher nvarchar(75),
+	[ReleseaDate] date
 )
 
 Create table Student(
