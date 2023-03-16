@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html { height:100%; }
+body { position:absolute; top:0; bottom:0; right:0; left:0; 
+background-color: #eff1f5 !important;
+}
+
+.content{
+    position:absolute;
+    transform: translateX(-50%);
+    left:50%;
+    width: 70%;
+    min-height: 100vh;
+
+    margin-top: 160px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.ann-list{
+    
+    
+
+    position: absolute;
+    left:0;
+    width:33%;
+}
+.ann-info{
+    width: 64%;
+    position: absolute;
+    margin-left: 30px;
+    border: 1px solid gray;
+    height: 600px;
+    right:0;
+}
+
+.ann-head{
+    width: 100%;
+    height: 66px;
+    box-shadow:  0 3px 10px gray;
+    display: flex;
+    justify-content: space-around;
+}
+
+.ann-item{
+    display: flex;
+    width: 100%;
+    height: 112px;
+    box-shadow: 10px 3px 5px gray;
+    margin-top: 16px;
+    overflow: hidden;
+    text-decoration: none !important;
+    color: inherit !important;
+   
+}  
+
+
+.ann-items{
+    overflow: scroll;
+    height: 580px;
+}
+
+.tag{
+    width: 4%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: white;
+}
+.item-info{
+width: 96%;
+height: 100%;
+
+}
+.head-item{
+    display: flex;
+    width: 100%;
+    height: 25%;
+    border-bottom: 1px solid gray;
+    
+}
+.lib-name{
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    font-weight: bold;
+}
+.date{
+    height: 100%;
+    width: 50%;
+}
+
+
+
+.title{
+    width: 100%;
+    height: 75%;
+}
+
+footer{
+    padding-top: 200px;
+    width: 100vw;
+    position:fixed;
+    bottom:-100px;
+    transform: translateX(-8%);
+}
+
+.head-info{
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 3px 10px gray;
+}
+
+.ann-info-content{
+    overflow: scroll;
+    height: calc(100% - 66px);
+}

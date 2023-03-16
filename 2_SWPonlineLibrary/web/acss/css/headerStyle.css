@@ -1,0 +1,47 @@
+h1{
+    color: red;
+    
+}
+.header{
+    height: 80px;
+    background-color: white;
+    position:fixed;
+    top:0;
+    width: 100%;
+    
+}
+
+.navbar{
+    height: 100%;
+    border-bottom: 1px solid #cfcfcfcc;
+   
+}
+.bg{
+    background-color: rgb(118, 131, 250);
+}
+
+.nav-link{
+
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #5563b3 !important;
+}
+
+.items a{
+color: white !important;
+font-size: 20px !important;
+}
+
+.items a:hover{
+    opacity: 0.4;
+}
+/*.user-area{
+    width: 100px;
+    margin-right: 40px;
+}*/
+
+
+
+

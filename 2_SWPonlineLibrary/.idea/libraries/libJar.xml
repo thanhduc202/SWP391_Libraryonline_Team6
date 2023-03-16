@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="libJar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libJar/jakarta.servlet.jsp.jstl-api-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libJar/javax.mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libJar/httpclient-4.5.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libJar/httpcore-4.4.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libJar/gson-2.8.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libJar/sqljdbc42.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libJar/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libJar/jakarta.servlet.jsp.jstl-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libJar/activation-jaf1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libJar/fluent-hc-4.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
