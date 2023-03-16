@@ -222,7 +222,7 @@
                     <input readonly="true" type="text" id="txtname" name="name" value="${sessionScope.account.accountName}">
                     <br/>
                     <label> Date  </label> 
-                    <input type="date"  name="date" id="txtdate" min="2000-01-01" />
+                    <input type="date" readonly="true" name="date" id="txtdate" value="${requestScope.odate}" min="2000-01-01" />>
                     <br/>
                     <br/>
                     <label> Star  </label> 
