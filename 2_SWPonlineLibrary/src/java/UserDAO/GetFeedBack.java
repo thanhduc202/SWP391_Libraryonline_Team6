@@ -60,7 +60,10 @@ public class GetFeedBack extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         bookDAO bd = new bookDAO();        
-        int bookId = Integer.parseInt(request.getParameter("id"));     
+        int bookId = Integer.parseInt(request.getParameter("id"));
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        request.setAttribute("odate", java.time.LocalDate.now());
         request.setAttribute("b", bd.getBookByBookId(bookId));        
         request.getRequestDispatcher("FeedBack.jsp").forward(request, response);
     } 
