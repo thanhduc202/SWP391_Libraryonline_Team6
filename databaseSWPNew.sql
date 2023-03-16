@@ -271,7 +271,7 @@ GO
 CREATE TABLE [dbo].[Renewal](
 	[RenewalID] [int] IDENTITY(1,1) NOT NULL,
 	[OrderID] [int] NULL,
-	[LibrarianID] [nvarchar](50)  Default 'L111',
+	[LibrarianID] [nvarchar](50) Default 'L111',
 	[ExtendDate] [date] NULL,
 	[Reason] [nvarchar](max) NULL,
 	[StatusID] [int] NULL,
@@ -411,14 +411,14 @@ INSERT [dbo].[Method] ([MethodID], [MethodName]) VALUES (1, N'Direct')
 INSERT [dbo].[Method] ([MethodID], [MethodName]) VALUES (2, N'Delivery')
 SET IDENTITY_INSERT [dbo].[Method] OFF
 GO
-SET IDENTITY_INSERT [dbo].[Order] ON 
 
-INSERT [dbo].[Order] ([OrderID], [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES (1, N'nam@fpt.edu.vn', 1, N'L111', CAST(N'2023-02-23' AS Date), CAST(N'2023-11-11' AS Date), 1)
-INSERT [dbo].[Order] ([OrderID], [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES (2, N'long@gmail.com', 2, N'L111', CAST(N'2023-02-23' AS Date), CAST(N'2023-03-11' AS Date), 1)
-INSERT [dbo].[Order] ([OrderID], [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES (4, N'chung@fpt.edu.vn', NULL, NULL, CAST(N'1900-01-01' AS Date), NULL, 1)
-INSERT [dbo].[Order] ([OrderID], [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES (6, N'chungdvhe160136@fpt.edu.vn', NULL, NULL, CAST(N'2023-03-05' AS Date), NULL, 1)
-INSERT [dbo].[Order] ([OrderID], [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES (7, N'chungdvhe160136@fpt.edu.vn', NULL, NULL, CAST(N'2023-03-15' AS Date), NULL, 1)
-SET IDENTITY_INSERT [dbo].[Order] OFF
+
+INSERT [dbo].[Order] ( [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES ( N'nam@fpt.edu.vn', 1, N'L111', CAST(N'2023-02-23' AS Date), CAST(N'2023-11-11' AS Date), 1)
+INSERT [dbo].[Order] ( [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES ( N'long@gmail.com', 2, N'L111', CAST(N'2023-02-23' AS Date), CAST(N'2023-03-11' AS Date), 1)
+INSERT [dbo].[Order] ( [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES ( N'chung@fpt.edu.vn', NULL, NULL, CAST(N'1900-01-01' AS Date), NULL, 1)
+INSERT [dbo].[Order] ( [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES ( N'chungdvhe160136@fpt.edu.vn', NULL, NULL, CAST(N'2023-03-05' AS Date), NULL, 1)
+INSERT [dbo].[Order] ( [AccountName], [MethodID], [LibrarianID], [OrderDate], [ScheduledTime], [StatusID]) VALUES ( N'chungdvhe160136@fpt.edu.vn', NULL, NULL, CAST(N'2023-03-15' AS Date), NULL, 1)
+
 GO
 SET IDENTITY_INSERT [dbo].[OrderDetails] ON 
 
@@ -431,12 +431,12 @@ SET IDENTITY_INSERT [dbo].[OrderDetails] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Penalty] ON 
 
-INSERT [dbo].[Penalty] ([PenaltyID], [AccountName], [OrderID], [Amount], [StatusID]) VALUES (1, N'nam@fpt.edu.vn', 2, 20.0000, 7)
+INSERT [dbo].[Penalty] ([PenaltyID], [AccountName], [OrderID], [Amount], [StatusID]) VALUES (1, N'nam@gmail.com', 2, 20.0000, 7)
 INSERT [dbo].[Penalty] ([PenaltyID], [AccountName], [OrderID], [Amount], [StatusID]) VALUES (2, N'long@gmail.com', 1, 20.0000, 7)
 SET IDENTITY_INSERT [dbo].[Penalty] OFF
 GO
-SET IDENTITY_INSERT [dbo].[Renewal] ON 
 
+SET IDENTITY_INSERT [dbo].[Renewal] ON 
 INSERT [dbo].[Renewal] ([RenewalID], [OrderID], [LibrarianID], [ExtendDate], [Reason], [StatusID]) VALUES (1, 1, N'L111', CAST(N'2023-02-27' AS Date), N'sdfghdhfghfđfg', 1)
 INSERT [dbo].[Renewal] ([RenewalID], [OrderID], [LibrarianID], [ExtendDate], [Reason], [StatusID]) VALUES (2, 2, N'L111', CAST(N'2023-04-30' AS Date), N'dfghdfghdfg', 2)
 SET IDENTITY_INSERT [dbo].[Renewal] OFF
@@ -462,16 +462,14 @@ INSERT [dbo].[Student] ([StudentID], [AccountName], [Semsester], [Major], [note]
 GO
 ALTER TABLE [dbo].[Announcement] ADD  DEFAULT (getdate()) FOR [PublishDate]
 GO
-ALTER TABLE [dbo].[Order] ADD  DEFAULT (NULL) FOR [LibrarianID]
-GO
+
 ALTER TABLE [dbo].[Order] ADD  DEFAULT (getdate()) FOR [OrderDate]
 GO
 ALTER TABLE [dbo].[Order] ADD  DEFAULT ((1)) FOR [StatusID]
 GO
 ALTER TABLE [dbo].[Penalty] ADD  DEFAULT ((7)) FOR [StatusID]
 GO
-ALTER TABLE [dbo].[Renewal] ADD  DEFAULT (NULL) FOR [LibrarianID]
-GO
+
 ALTER TABLE [dbo].[Announcement]  WITH CHECK ADD FOREIGN KEY([LibrarianID])
 REFERENCES [dbo].[Librarian] ([LibrarianID])
 GO
