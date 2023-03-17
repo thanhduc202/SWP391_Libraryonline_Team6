@@ -20,6 +20,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg">
 
                 <div class="navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="home-logo"><a href="loadhome"><img src="logo/library.png" alt="alt"/></a></div>
                     <div class="navbar-nav items">
                         <a class="nav-link active" href="loadhome">Home</a>
                         <a class="nav-link active" href="loadannouncement">Announcement</a>
