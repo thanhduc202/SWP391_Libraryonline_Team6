@@ -119,6 +119,14 @@ a[target='_blank'] {
 }
 
 .logo{
+    position: fixed;
+    left:50%;
+    top:0;
     width: 220px;
-   background-color: aliceblue;
+    height: 220px;
+    transform: translateX(-28%);
+}
+.logo img{
+    width:100%;
+    height: 100%;
 }
