@@ -111,6 +111,16 @@ public class filterController extends HttpServlet {
                 json = new Gson().toJson(ls);
                 out.print(json);
                 break;
+           case "0-2":
+                 ls = bd.getNewest();
+                json = new Gson().toJson(ls);
+                out.print(json);
+                break;
+           case "0-3":
+                 ls = bd.getMostPopulerBook();
+                json = new Gson().toJson(ls);
+                out.print(json);
+                break;
            case "1-0":
                 ls=bd.getProductByCategory(1);
                 json = new Gson().toJson(ls);
