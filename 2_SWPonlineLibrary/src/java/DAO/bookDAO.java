@@ -275,6 +275,75 @@ public class bookDAO extends DBContext {
         return ls;
 
     }
+    
+    public List<bookRate> getNewest(){
+        List<bookRate> ls = new ArrayList<bookRate>();
+        String query="select b.*, r.AvgRate from (select * from Book)b left join (select  b.BookID,b.Bname,b.image,b.Author ,\n" +
+"                AVG(CAST(f.Star as FLOAT))as 'AvgRate' from Book b inner join FeedBack f on b.BookID=f.BookID\n" +
+"                group by b.BookID,b.Bname,b.image,b.Author )r\n" +
+"                on b.BookID = r.BookID order by b.BookID DESC";
+        
+        try {
+            st = connection.prepareStatement(query);
+            ResultSet rs = st.executeQuery();
+            while (true) {
+                if (rs.next()) {
+                    ls.add(new bookRate(rs.getFloat("AvgRate"), rs.getInt("BookID"), rs.getString("Bname"), rs.getString("Author"), rs.getString("image"), rs.getInt("Cid"), rs.getString("Language"), rs.getString("Description"), rs.getInt("Status"), rs.getInt("quantity"), rs.getString("publisher"), rs.getInt("Pages"), rs.getInt("PublishYear")));
+                } else {
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error in get book");
+        }
+
+        return ls;
+        
+        
+    }
+    public bookRate getBookRateById(int id){
+        String query = "select b.*, r.AvgRate from (select * from Book)b left join (select  b.BookID,b.Bname,b.image,b.Author ,\n" +
+"                AVG(CAST(f.Star as FLOAT))as 'AvgRate' from Book b inner join FeedBack f on b.BookID=f.BookID\n" +
+"                group by b.BookID,b.Bname,b.image,b.Author )r\n" +
+"                on b.BookID = r.BookID where b.BookID=?";
+        bookRate br = new bookRate();
+        try {
+            st = connection.prepareStatement(query);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                br=(new bookRate(rs.getFloat("AvgRate"), rs.getInt("BookID"), rs.getString("Bname"), rs.getString("Author"), rs.getString("image"), rs.getInt("Cid"), rs.getString("Language"), rs.getString("Description"), rs.getInt("Status"), rs.getInt("quantity"), rs.getString("publisher"), rs.getInt("Pages"), rs.getInt("PublishYear")));
+                return br;
+            }        
+        } catch (Exception e) {
+            System.out.println("Error to get book by cid");
+        }
+        
+        return null;
+    }
+    
+    
+    public List<bookRate> getMostPopulerBook(){
+         List<bookRate> ls = new ArrayList<bookRate>();
+       
+         String query="select BookID, count(BookId) as times from OrderDetails group by BookID";
+         try {
+            st = connection.prepareStatement(query);
+            ResultSet rs = st.executeQuery();
+            while (true) {
+                if (rs.next()) {
+                    int id =rs.getInt("BookId");
+                   ls.add(getBookRateById(id));
+                } else {
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error in get book");
+        }
+         return ls;
+    }
+    
 
     public List getAllListWait(int bookID) {
         List<book> list = new ArrayList<>();
